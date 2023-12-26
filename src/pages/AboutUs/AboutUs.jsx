@@ -1,9 +1,8 @@
-import React from 'react'
+import Layout from "containers/Layout/Layout";
+import React from "react";
 
 const AboutUs = () => {
-  return (
-    <div>AboutUs</div>
-  )
-}
+  return <Layout>AboutUs</Layout>;
+};
 
-export default AboutUs
+export default AboutUs;

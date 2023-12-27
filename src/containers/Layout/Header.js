@@ -11,10 +11,13 @@ const Header = () => {
   const toggle = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
-    <div className="py-4 px-3 sm:px-20 shadow-sm border">
+    <div className="py-4 px-3 sm:px-20 lg:px-44 shadow-sm border">
       <nav className="flex justify-between">
-        <Link to="/">
+        <Link to="/" className="flex items-center gap-x-3">
           <CompanyLogo />
+          <p className="sm:text-4xl text-3xl font-bold text-blue-400">
+            NewsLetter
+          </p>
         </Link>
         <div className="hidden sm:block">
           <ul className="flex items-center gap-x-3 h-full text-lg">
@@ -22,7 +25,7 @@ const Header = () => {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  isActive ? "text-orange-600" : "text-[black]"
+                  isActive ? "text-[#176B87]" : "text-[black]"
                 }
               >
                 About Us
@@ -33,7 +36,7 @@ const Header = () => {
               <NavLink
                 to="/news"
                 className={({ isActive }) =>
-                  isActive ? "text-orange-600" : "text-[black]"
+                  isActive ? "text-[#176B87]" : "text-[black]"
                 }
               >
                 News
@@ -71,7 +74,7 @@ const Header = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                isActive ? "text-orange-600" : "text-[black]"
+                isActive ? "text-[#176B87]" : "text-[black]"
               }
             >
               About Us
@@ -82,7 +85,7 @@ const Header = () => {
             <NavLink
               to="/news"
               className={({ isActive }) =>
-                isActive ? "text-orange-600" : "text-[black]"
+                isActive ? "text-[#176B87]" : "text-[black]"
               }
             >
               News

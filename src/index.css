@@ -3,8 +3,35 @@ html,
 body {
   height: 100%;
   margin: 0; /* Optionally remove default margins */
+  font-family: "Poppins", sans-serif;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-input,
+.ant-input-number,
+.ant-btn {
+  border-radius: 3px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.ant-form-item-explain-error {
+  font-size: 13px !important;
+  padding-left: 0.5rem;
+}
+
+.react-international-phone-input {
+  width: 100%;
+}

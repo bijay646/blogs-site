@@ -1,10 +1,15 @@
 import { useLocation } from "react-router-dom";
 
 import Layout from "containers/Layout/Layout";
+import { useEffect } from "react";
 
 const BlogDetail = () => {
   const location = useLocation();
   const item = location.state;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout>

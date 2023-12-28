@@ -2,14 +2,33 @@ import { CalendarOutlined } from "@ant-design/icons";
 import { Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ item }) => {
+import Skeleton from "react-loading-skeleton";
+
+const BlogCard = ({ item, loading }) => {
   const navigate = useNavigate();
 
   const handleReadMoreClick = () => {
     navigate(`/blogdetails/${item.title}`, { state: item });
   };
 
-  return (
+  return loading ? (
+    <Col pan={24} md={12} xl={8} className="box-border py-5 px-0 md:px-5">
+      <div className="shadow h-full flex flex-col">
+        <div className="h-40 overflow-hidden w-full">
+          <Skeleton count={4} height={160} width={"100%"} />
+        </div>
+        <div className="px-4 pb-5 flex flex-col flex-grow">
+          <div className="flex justify-between my-2">
+            <Skeleton count={1} width={80} />
+            <Skeleton count={1} width={80} />
+          </div>
+          <Skeleton count={1} height={15} />
+          <Skeleton count={1} height={45} />
+          <Skeleton count={1} height={25} className="mt-5" />
+        </div>
+      </div>
+    </Col>
+  ) : (
     <Col span={24} md={12} xl={8} className="box-border py-5 px-0 md:px-5">
       <div className="shadow-xl border hover:shadow-md h-full flex flex-col">
         <div className="h-40 overflow-hidden w-full">

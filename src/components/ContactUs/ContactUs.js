@@ -99,15 +99,15 @@ export default function ContactUs() {
 
         <div className="flex flex-col gap-3">
           {layoutContact(
-            <HomeOutlined className="text-xl text-[grey] bg-[#f5f5f5] rounded-full p-3" />,
+            <HomeOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
             "Kathmandu, New Baneshwor, 44600"
           )}
           {layoutContact(
-            <PhoneOutlined className="text-xl text-[grey] bg-[#f5f5f5] rounded-full p-3" />,
+            <PhoneOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
             "+01 98765432"
           )}
           {layoutContact(
-            <MailOutlined className="text-xl text-[grey] bg-[#f5f5f5] rounded-full p-3" />,
+            <MailOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
             "dummy@gmail.com"
           )}
         </div>

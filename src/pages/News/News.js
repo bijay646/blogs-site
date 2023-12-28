@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Pagination, Row } from "antd";
 
@@ -12,15 +12,15 @@ const News = () => {
   const newsArticles = useSelector((state) => state.getArticles);
   const { articles, loading, error } = newsArticles;
 
+  const [pageNo, setPageNo] = useState(1);
+
   const handleChange = (page) => {
-    console.log(page);
+    setPageNo(page);
   };
 
   useEffect(() => {
-    if (!articles.length && !loading) {
-      dispatch(getNewsArticles());
-    }
-  }, []);
+    dispatch(getNewsArticles(pageNo));
+  }, [pageNo]);
 
   return (
     <Layout>
@@ -44,8 +44,17 @@ const News = () => {
         <div className="mt-8 px-3 sm:px-20 lg:px-44 flex flex-col items-center">
           <Row className="my-5">
             {articles?.map((item, i) => (
-              <BlogCard item={item} key={i} />
+              <BlogCard item={item} key={i} loading={loading} />
             ))}
+            {!articles.length && (
+              <p
+                className={
+                  error ? "text-red-500 text-2xl" : "text-gray-700 text-2xl"
+                }
+              >
+                {error || "No Blogs to show"}
+              </p>
+            )}
           </Row>
           <Pagination
             defaultCurrent={1}

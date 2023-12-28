@@ -11,12 +11,12 @@ const Header = () => {
   const toggle = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
-    <div className="py-4 px-3 sm:px-20 lg:px-44 shadow-sm border">
+    <div className="py-4 px-3 sm:px-20 lg:px-44 shadow-sm border sticky top-0 bg-white z-10">
       <nav className="flex justify-between">
         <Link to="/" className="flex items-center gap-x-3">
           <CompanyLogo />
           <p className="sm:text-4xl text-3xl font-bold text-blue-400">
-            NewsLetter
+            Global Buzz
           </p>
         </Link>
         <div className="hidden sm:block">

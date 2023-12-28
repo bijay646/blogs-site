@@ -1,8 +1,8 @@
 const PAGES = {
   HOME: "/",
-  ABOUT_US:"/about",
-  NEWS: "/news"
-
+  ABOUT_US: "/about",
+  NEWS: "/news",
+  BLOG_DETAIL: "/blogdetails/:id",
 };
 
 export default PAGES;

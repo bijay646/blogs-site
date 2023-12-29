@@ -1,22 +1,22 @@
 import axios from "axios";
 import newsConstants from "redux/constants/newsConstants";
 
-export const getNewsArticles = () => async (dispatch, getState) => {
+export const getNewsArticles = (page) => async (dispatch) => {
   try {
     dispatch({ type: newsConstants.GET_NEWS_REQUEST });
 
     // Check if articles are already in localStorage
-    const storedArticles = localStorage.getItem("articles");
+/*     const storedArticles = localStorage.getItem("articles");
     if (storedArticles) {
       dispatch({
         type: newsConstants.GET_NEWS_SUCCESS,
         payload: JSON.parse(storedArticles),
       });
       return;
-    }
+    } */
 
     let { data } = await axios.get(
-      "https://gnews.io/api/v4/top-headlines?category=general&lang=en&page=3&apikey=a86876043fa324440c81ef5b2c797798"
+      `${process.env.REACT_APP_GNEWS_BASE_URL}category=general&lang=en&page=${page}&apikey=${process.env.REACT_APP_GNEWS_API_KEY}`
     );
 
     data = data.articles;
@@ -31,8 +31,8 @@ export const getNewsArticles = () => async (dispatch, getState) => {
     dispatch({
       type: newsConstants.GET_NEWS_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
+        error.response && error.response.data.errors
+          ? error.response.data.errors[0]
           : error.message,
     });
   }

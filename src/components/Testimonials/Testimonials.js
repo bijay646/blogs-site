@@ -81,9 +81,9 @@ const Testimonials = () => {
         </button>
       </div>
       <Slider ref={sliderRef} {...settings}>
-        {TESTIMONIALS.map((item) => {
+        {TESTIMONIALS.map((item, i) => {
           return (
-            <div className="p-3">
+            <div className="p-3" key={i}>
               <div className="shadow-md px-5 py-6 bg-[#EEF5FF80] hover:shadow-sm rounded-md border border-[#EEF5FF]">
                 <div className="flex gap-x-4">
                   <Avatar className="bg-white text-4xl text-orange-600 flex justify-center items-center p-6">

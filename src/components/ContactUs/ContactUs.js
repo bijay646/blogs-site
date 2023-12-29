@@ -10,7 +10,7 @@ import {
   PhoneNumberElement,
 } from "components";
 
-export default function ContactUs() {
+export default function ContactUs({ contactUsRef }) {
   const [form] = Form.useForm();
   const handleSubmitMessage = (values) => {
     message.success("Email send Successfully");
@@ -37,8 +37,9 @@ export default function ContactUs() {
         }
       );
   };
+
   return (
-    <div className="my-6 px-3 sm:px-20 lg:px-44 py-7">
+    <div className="my-6 px-3 sm:px-20 lg:px-44 py-7" ref={contactUsRef}>
       <div className="flex flex-row items-center gap-6 mb-6">
         <span className="w-12 border-2 border-solid border-blue-600 h-0 rounded-full"></span>
         <span className="text-4xl font-semibold">Contact Us</span>
@@ -99,15 +100,15 @@ export default function ContactUs() {
 
         <div className="flex flex-col gap-3">
           {layoutContact(
-            <HomeOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
+            <HomeOutlined className="text-xl text-gray-400 bg-[#EEF5FF] rounded-full p-3" />,
             "Kathmandu, New Baneshwor, 44600"
           )}
           {layoutContact(
-            <PhoneOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
+            <PhoneOutlined className="text-xl text-gray-400 bg-[#EEF5FF] rounded-full p-3" />,
             "+01 98765432"
           )}
           {layoutContact(
-            <MailOutlined className="text-xl text-[grey] bg-[#EEF5FF] rounded-full p-3" />,
+            <MailOutlined className="text-xl text-gray-400 bg-[#EEF5FF] rounded-full p-3" />,
             "dummy@gmail.com"
           )}
         </div>

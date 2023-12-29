@@ -14,6 +14,8 @@ const News = () => {
 
   const [pageNo, setPageNo] = useState(1);
 
+  const storedArticles = JSON.parse(localStorage.getItem("articles"));
+
   const handleChange = (page) => {
     setPageNo(page);
   };
@@ -43,17 +45,16 @@ const News = () => {
 
         <div className="mt-8 px-3 sm:px-20 lg:px-44 flex flex-col items-center">
           <Row className="my-5">
-            {articles?.map((item, i) => (
-              <BlogCard item={item} key={i} loading={loading} />
-            ))}
-            {!articles.length && (
-              <p
-                className={
-                  error ? "text-red-500 text-2xl" : "text-gray-700 text-2xl"
-                }
-              >
-                {error || "No Blogs to show"}
-              </p>
+            {articles.length ? (
+              articles.map((item, i) => (
+                <BlogCard item={item} key={i} loading={loading} />
+              ))
+            ) : error && storedArticles?.length ? (
+              storedArticles.map((item, i) => (
+                <BlogCard item={item} key={i} loading={false} />
+              ))
+            ) : (
+              <p className="text-2xl">No Blogs to show</p>
             )}
           </Row>
           <Pagination
